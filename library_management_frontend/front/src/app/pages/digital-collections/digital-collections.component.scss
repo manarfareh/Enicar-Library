@@ -1,0 +1,52 @@
+.container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    
+    button {
+      margin-bottom: 20px;
+    }
+    
+    .modal-body {
+      .form-group {
+        margin-bottom: 20px;
+        
+        label {
+          display: block;
+          margin-bottom: 5px;
+        }
+      }
+    }
+  }
+  table {
+    th {
+      text-align: center;
+      background-color: #3a638f;
+      color: #fff;
+    }
+  
+    td {
+      vertical-align: middle;
+    }
+  }
+  
+ .btn-group {
+    display: flex;
+  
+    .btn {
+      flex-grow: 1;
+      margin-right: 5px;
+  
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }

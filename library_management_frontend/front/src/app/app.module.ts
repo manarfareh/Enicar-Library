@@ -12,6 +12,13 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
+import { HomeAdminComponent } from './layouts/home-admin/home-admin.component';
+import { PhysicalCollectionsComponent } from './pages/physical-collections/physical-collections.component';
+import { DigitalCollectionsComponent } from './pages/digital-collections/digital-collections.component';
+import { BorrowedBooksComponent } from './pages/borrowed-books/borrowed-books.component';
+import { BorrowingRequestsComponent } from './pages/borrowing-requests/borrowing-requests.component';
+import { StudentsComponent } from './pages/students/students.component';
+import { StaffComponent } from './pages/staff/staff.component';
 
 
 @NgModule({
@@ -27,7 +34,14 @@ import { ComponentsModule } from './components/components.module';
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    AuthLayoutComponent
+    AuthLayoutComponent,
+    HomeAdminComponent,
+    PhysicalCollectionsComponent,
+    DigitalCollectionsComponent,
+    BorrowedBooksComponent,
+    BorrowingRequestsComponent,
+    StudentsComponent,
+    StaffComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
