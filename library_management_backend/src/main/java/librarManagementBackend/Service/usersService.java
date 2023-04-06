@@ -1,16 +1,22 @@
 package librarManagementBackend.Service;
-import java.util.UUID;
 
+import java.util.List;
+import com.example.demo.users;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import libraryManagementBackend.model.users;
+import jakarta.transaction.Transactional;
 import libraryManagementBackend.repo.usersRepo;
+
 @Service
+@Transactional
 public class usersService {
- private final usersRepo UsersRepo ; 
+ private  usersRepo UsersRepo ; 
  @Autowired
- public usersService(usersRepo UsersRepo) {
-	 this.UsersRepo=UsersRepo;
+ public users usersService(users user) {
+	 return UsersRepo.save(user);
+ }
+ public List<users> findAllUsers() {
+     return ( List<users>) UsersRepo.findAll();
  }
 }
