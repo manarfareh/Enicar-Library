@@ -16,26 +16,14 @@ const routes: Routes =[
   },
   {
     path: '',
-    component: AdminLayoutComponent,
+    component: HomeAdminComponent,
     children: [
       {
         path: '',
-        loadChildren: () => import('src/app/layouts/admin-layout/admin-layout.module').then(m => m.AdminLayoutModule)
+        loadChildren: () => import('src/app/layouts/home-admin/home-admin.module').then(m => m.HomeAdminModule)
       }
     ]
-  },
-  
-  {
-    path: '',
-    component: AuthLayoutComponent,
-    children: [
-      {
-        path: '',
-        loadChildren: () => import('src/app/layouts/auth-layout/auth-layout.module').then(m => m.AuthLayoutModule)
-      }
-    ]
-  },
-{
+  },{
     path: '**',
     redirectTo: 'home'
   }
