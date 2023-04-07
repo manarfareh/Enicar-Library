@@ -7534,3 +7534,39 @@ org.eclipse.buildship.core.internal.GradlePluginsRuntimeException: Can't read ro
 
 !ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-06 12:22:37.270
 !MESSAGE executing callback sts4.classpath.xNpVuCwj SUCCESS [done]
+
+!ENTRY org.eclipse.debug.core 4 120 2023-04-06 13:19:52.465
+!MESSAGE Variable references non-existent resource : ${project_loc:demo-main_demo-main}
+
+!ENTRY org.eclipse.debug.core 4 120 2023-04-06 13:20:19.092
+!MESSAGE Variable references non-existent resource : ${project_loc:demo-main_demo-main}
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-06 23:45:20.531
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-06 23:45:20.547
+!MESSAGE classpath=96 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-06 23:45:20.547
+!MESSAGE buffering callback sts4.classpath.xNpVuCwj library_backend_library_backend false 96
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-06 23:45:20.547
+!MESSAGE executing callback sts4.classpath.xNpVuCwj 1 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-06 23:45:20.562
+!MESSAGE executing callback sts4.classpath.xNpVuCwj SUCCESS [done]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-06 23:45:21.829
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-06 23:45:21.844
+!MESSAGE classpath=96 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-06 23:45:21.844
+!MESSAGE buffering callback sts4.classpath.xNpVuCwj library_backend_library_backend false 96
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-06 23:45:21.844
+!MESSAGE executing callback sts4.classpath.xNpVuCwj 1 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-04-06 23:45:21.860
+!MESSAGE executing callback sts4.classpath.xNpVuCwj SUCCESS [done]
