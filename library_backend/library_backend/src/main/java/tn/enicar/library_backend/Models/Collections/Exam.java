@@ -4,37 +4,24 @@ import jakarta.persistence.*;
 import lombok.Data;
 import org.jetbrains.annotations.NotNull;
 
+import java.io.Serializable;
 import java.sql.Date;
 
 @Data
 @Entity
 @Table(name = "Exam")
-public class Exam {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    private String title;
-
-    private String author;
-    @Column(nullable = false)
-    private String Type;
-    @Lob
-    private byte[] pdf;
-    private String publisher;
-
-    @NotNull
-    private Integer publicationYear;
-
-    private String language;
-
-    @NotNull
-    private Integer pageCount;
-
-    @Column(columnDefinition = "TEXT")
-    private String description;
-
-    @Column(nullable = false, columnDefinition = "TINYINT(1)")
-    private boolean isAvailable;
+@DiscriminatorValue("exam")
+public class Exam extends Book implements Serializable {
+   private  String subject;
+   private Class aClass;
+   public Exam(){
+      super();
+   }
+   public Exam(String title,String author,int Type,String url,Integer publicationYear,
+               String language,Integer pageCount,String description,boolean isAvailable,String subject,Class aClass)
+   {
+      new Book( title,author, Type, url, publicationYear, language, pageCount, description, isAvailable);
+      this.subject=subject;
+      this.aClass=aClass;
+   }
 }
