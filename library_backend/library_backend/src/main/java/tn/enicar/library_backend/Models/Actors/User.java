@@ -31,15 +31,20 @@ public abstract class User implements Serializable {
             generator = "user_seq"
     )
     protected Long id;
-    protected String name;
+    @Column(nullable = false)
 
+    protected String name;
+    @Column(nullable = false, unique = true)
     protected String email; //mail @enicar.ucar.tn
     protected LocalDate dob;
     @Transient
     protected Integer age;
+    @Column(nullable = false)
     @Embedded
     protected PhoneNumber phoneNumber;
 
+    protected String imageUrl;
+    @Column(nullable = false)
     protected String password;
 
     public Integer getAge() {
@@ -51,7 +56,8 @@ public abstract class User implements Serializable {
             String email,
             LocalDate dob,
             PhoneNumber phoneNumber,
-            String password
+            String password,
+            String imageUrl
     )
     {
         this.id = id;
@@ -61,6 +67,7 @@ public abstract class User implements Serializable {
         this.age=getAge();
         this.phoneNumber = phoneNumber;
         this.password = password;
+        this.imageUrl = imageUrl;
 
 
 
@@ -70,7 +77,8 @@ public abstract class User implements Serializable {
                 String email,
                 LocalDate dob,
                 PhoneNumber phoneNumber,
-                String password)
+                String password,
+                String imageUrl)
     {
         this.name = name;
         this.email = email;
@@ -78,6 +86,7 @@ public abstract class User implements Serializable {
         this.age = getAge();
         this.phoneNumber = phoneNumber;
         this.password = password;
+        this.imageUrl=imageUrl;
 
     }
 
