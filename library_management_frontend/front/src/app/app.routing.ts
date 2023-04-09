@@ -34,7 +34,16 @@ const routes: Routes =[
       }
     ]
   },
-  { path: 'admin', component:HomeAdminComponent },
+  {
+    path: 'admin',
+    component: HomeAdminComponent,
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('src/app/layouts/home-admin/home-admin.module').then(m => m.HomeAdminModule)
+      }
+    ]
+  },
   
   {
     path: '**',
