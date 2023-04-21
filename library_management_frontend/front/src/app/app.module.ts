@@ -19,7 +19,8 @@ import { BorrowedBooksComponent } from './pages/borrowed-books/borrowed-books.co
 import { BorrowingRequestsComponent } from './pages/borrowing-requests/borrowing-requests.component';
 import { StudentsComponent } from './pages/students/students.component';
 import { StaffComponent } from './pages/staff/staff.component';
-
+import { MatDialogModule } from '@angular/material/dialog';
+import { LoginAdminComponent } from './pages/login-admin/login-admin.component';
 
 @NgModule({
   imports: [
@@ -29,7 +30,8 @@ import { StaffComponent } from './pages/staff/staff.component';
     ComponentsModule,
     NgbModule,
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatDialogModule
   ],
   declarations: [
     AppComponent,
@@ -41,7 +43,8 @@ import { StaffComponent } from './pages/staff/staff.component';
     BorrowedBooksComponent,
     BorrowingRequestsComponent,
     StudentsComponent,
-    StaffComponent
+    StaffComponent,
+    LoginAdminComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,5 +1,5 @@
 <div class="container mt-5">
-    <h2>List of Books</h2>
+    <h2>List of Staffs</h2>
     <hr>
   
     <div class="row">
@@ -9,16 +9,14 @@
             <thead>
               <tr>
                 <th>name</th>
-                <th>departement</th>
-                <th>id</th>
-                <th> </th>
+                <th>password</th>
+                <th> More</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>name </td>
-                <td>departement </td>
-                <td> id </td>
+              <tr *ngFor="let  staff of staffs ">
+                <td>{{ staff.name }}</td>
+                <td>{{ staff.password }}</td>
                 <td>
                   <div class="btn-group">
                     <button type="button" class="btn btn-primary"  >View Details</button>

@@ -43,9 +43,7 @@
         </div>
       </div>
     </div>
-  </div>
-  
-<div class="container mt-5">
+  </div><div class="container mt-5">
     <h2>List of Books</h2>
     <hr>
   
@@ -57,20 +55,20 @@
               <tr>
                 <th>Title</th>
                 <th>Author</th>
-                <th>Publication Date</th>
+                <th>Availability</th>
                 <th>Action</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>book.title </td>
-                <td> book.author </td>
-                <td> book.publicationDate </td>
+              <tr *ngFor="let book of books; let i = index" [id]="'book' + i">
+                <td>{{ book.title }}</td>
+                <td>{{ book.author }}</td>
+                <td>{{ book.isAvailable }}</td>
                 <td>
                   <div class="btn-group">
-                    <button type="button" class="btn btn-primary"  >View Details</button>
-                    <button type="button" class="btn btn-success" >Modify</button>
-                    <button type="button" class="btn btn-danger" >Delete</button>
+                    <button class="btn btn-primary" data-toggle="modal" [attr.data-target]="'#detailBookModal' + i" (click)="selectedBook = book">View Details</button>
+                    <button type="button" class="btn btn-success">Modify</button>
+                    <button type="button" (click)="deleteBook(book.id)" class="btn btn-danger">Delete</button>
                   </div>
                 </td>
               </tr>
@@ -80,4 +78,34 @@
       </div>
     </div>
   
+    <!-- Book Detail Modals -->
+    <div *ngFor="let book of books; let i = index">
+      <div class="modal fade" [id]="'detailBookModal' + i" tabindex="-1" role="dialog" aria-labelledby="detailBookModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="detailBookModalLabel">{{ book.title }}</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <h2>{{book.title}}</h2>
+              <p>Author: {{book.author}}</p>
+              <p>Type: {{book.type === 0 ? 'Physical' : 'Digital'}}</p>
+              <p *ngIf="book.type === 1">URL: {{book.url}}</p>
+              <p>Publication Year: {{book.publicationYear}}</p>
+              <p>Language: {{book.language}}</p>
+              <p>Page Count: {{book.pageCount}}</p>
+              <p>Description: {{book.description}}</p>
+              <p>Is Available: {{book.isAvailable ? 'Yes' : 'No'}}</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+  

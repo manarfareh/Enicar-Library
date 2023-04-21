@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpErrorResponse } from '@angular/common/http';
+import { StudentsService } from './student.service';
+import { Student } from './student';
 
 @Component({
   selector: 'app-students',
@@ -7,9 +10,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StudentsComponent implements OnInit {
 
-  constructor() { }
+  students: Student[];
 
-  ngOnInit(): void {
+  constructor(private studentsService: StudentsService) { }
+
+  ngOnInit() {
+    this.getStudents();
   }
 
+  private getStudents() {
+    this.studentsService.getStudent().subscribe(
+      (response: Student[]) => {
+        this.students = response;
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
+  }
 }

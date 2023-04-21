@@ -6,29 +6,29 @@
       <div class="col-md-12">
         <div class="table-responsive">
           <table class="table table-bordered">
-            <thead>
-              <tr>
-                <th>Title</th>
-                <th>Author</th>
-                <th>Publication Date</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>book.title </td>
-                <td> book.author </td>
-                <td> book.publicationDate </td>
-                <td>
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-primary"  >View Details</button>
-                    <button type="button" class="btn btn-success" >Modify</button>
-                    <button type="button" class="btn btn-danger" >Delete</button>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+              <thead>
+                <tr>
+                  <th>Title</th>
+                  <th>Author</th>
+                  <th>Avaibility</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let book of books">
+                  <td>{{ book.title }}</td>
+                  <td>{{ book.author }}</td>
+                  <td>{{ book.isAvailable }}</td>
+                  <td>
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-primary">View Details</button>
+                      <button type="button" class="btn btn-success">Modify</button>
+                      <button type="button" class="btn btn-danger">Delete</button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
         </div>
       </div>
     </div>

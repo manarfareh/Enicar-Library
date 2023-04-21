@@ -18,7 +18,7 @@ public class Exam extends Book implements Serializable {
       super();
    }
    public Exam(String title,String author,int Type,String url,Integer publicationYear,
-               String language,Integer pageCount,String description,boolean isAvailable,String subject,Class aClass)
+               String language,Integer pageCount,String description,int isAvailable,String subject,Class aClass)
    {
       new Book( title,author, Type, url, publicationYear, language, pageCount, description, isAvailable);
       this.subject=subject;
