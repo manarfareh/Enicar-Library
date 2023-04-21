@@ -18,7 +18,7 @@ public class StudentRessource {
         this.studentService = studentService;
     }
     @GetMapping("/all")
-    public ResponseEntity<List<Student>> getAllEmployees () {
+    public ResponseEntity<List<Student>> getAllStudents () {
         List<Student> students = studentService.findAllStudents();
         return new ResponseEntity<>(students, HttpStatus.OK);
     }

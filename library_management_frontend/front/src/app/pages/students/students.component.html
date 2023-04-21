@@ -1,32 +1,61 @@
 <div class="container mt-5">
-    <h2>List of Books</h2>
-    <hr>
-  
-    <div class="row">
-      <div class="col-md-12">
-        <div class="table-responsive">
-          <table class="table table-bordered">
-            <thead>
-              <tr>
-                <th>name</th>
-                <th>num-ins</th>
-                <th> </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>name </td>
-                <td> num-ins </td>
-                <td>
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-primary"  >View Details</button>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+  <h2>List of Students</h2>
+  <hr>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Class</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let student of students; let i = index" [id]="'student' + i">
+              <td>{{ student.name }}</td>
+              <td>{{ student.aClass }}</td>
+              <td>
+                <div class="btn-group">
+                  <button class="btn btn-primary" data-toggle="modal" [attr.data-target]="'#detailStudentModal' + i" (click)="selectedStudent = student">View Details</button>
+                  <button type="button" class="btn btn-success">Modify</button>
+                  <button type="button" class="btn btn-danger">Delete</button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Book Detail Modals -->
+  <div *ngFor="let student of students; let i = index">
+    <div class="modal fade" [id]="'detailStudentModal' + i" tabindex="-1" role="dialog" aria-labelledby="detailStudentModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="detailStudentModalLabel">{{ student.name }}</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <h2>{{student.name}}</h2>
+            <p>Email: {{student.email}}</p>
+            <p>Date of Birth: {{student.dob}}</p>
+            <p>Phone Number: {{student.phoneNumber}}</p>
+            <p>Class: {{student.aClass}}</p>
+            <p>Password: {{student.password}}</p>
+            <p>Image URL: {{student.imageUrl}}</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          </div>
         </div>
       </div>
     </div>
-  
   </div>
+</div>
