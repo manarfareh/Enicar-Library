@@ -28,14 +28,27 @@
             "assets": [
               "src/favicon.ico",
               "src/assets"
+              
             ],
             "styles": [
               "src/styles.scss",
-              "src/assets/scss/argon.scss"
+              "src/assets/scss/argon.scss",
+              "src/app/layouts/homepage/css/bootstrap.min.css",
+              "src/app/layouts/homepage/css/style.css",
+              "src/app/layouts/homepage/lib/animate/animate.min.css",
+              "src/app/layouts/homepage/lib/owlcarousel/assets/owl.carousel.min.css"
             ],
             "scripts": [
               "node_modules/chart.js/dist/Chart.min.js",
-              "node_modules/clipboard/dist/clipboard.min.js"
+              "node_modules/clipboard/dist/clipboard.min.js",
+              "src/app/layouts/homepage/js/main.js",
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
+              "src/app/layouts/homepage/lib/wow/wow.min.js",
+              "src/app/layouts/homepage/lib/easing/easing.min.js",
+              "src/app/layouts/homepage/lib/waypoints/waypoints.min.js",
+              "src/app/layouts/homepage/lib/owlcarousel/owl.carousel.min.js",
+             "src/app/layouts/homepage/lib/owlcarousel/owl.carousel.js"
             ]
           },
           "configurations": {
@@ -46,7 +59,7 @@
                   "minify": false,
                   "inlineCritical": false
                 },
-                "fonts": true
+                "fonts": false
               },
               "outputHashing": "all",
               "sourceMap": false,

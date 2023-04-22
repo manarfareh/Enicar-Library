@@ -6,9 +6,10 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 import { HomeAdminComponent } from './layouts/home-admin/home-admin.component';
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 import { LoginAdminComponent } from './pages/login-admin/login-admin.component';
+import { HomepageComponent } from './layouts/homepage/homepage.component';
 const routes: Routes =[
   {
-    path: '',
+    path: 'aa',
     redirectTo: 'home',
     pathMatch: 'full',
   },
@@ -37,6 +38,10 @@ const routes: Routes =[
     ]
   },
   {
+    path: 'homepage',
+    component: HomepageComponent,
+  },
+  {
     path: '',
     component:AuthLayoutComponent ,
     children: [
@@ -46,20 +51,7 @@ const routes: Routes =[
       }
     ]
   },
-<<<<<<< HEAD
-  {
-    path: 'admin',
-    component: HomeAdminComponent,
-    children: [
-      {
-        path: '',
-        loadChildren: () => import('src/app/layouts/home-admin/home-admin.module').then(m => m.HomeAdminModule)
-      }
-    ]
-  },
   
-=======
->>>>>>> my-temporary-work
   {
     path: '**',
     redirectTo: 'home'
