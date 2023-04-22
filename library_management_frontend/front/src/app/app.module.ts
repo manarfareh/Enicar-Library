@@ -22,6 +22,7 @@ import { StaffComponent } from './pages/staff/staff.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { LoginAdminComponent } from './pages/login-admin/login-admin.component';
 import { HomepageComponent } from './layouts/homepage/homepage.component';
+import { HomeComponent } from './layouts/home/home.component';
 
 @NgModule({
   imports: [
@@ -46,7 +47,8 @@ import { HomepageComponent } from './layouts/homepage/homepage.component';
     StudentsComponent,
     StaffComponent,
     LoginAdminComponent,
-    HomepageComponent
+    HomepageComponent,
+    HomeComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
