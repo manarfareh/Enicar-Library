@@ -24,7 +24,7 @@ public class Book implements Serializable {
 
     protected String author;
     @Column(nullable = false)
-    protected int IsDigit;//0 if physical 1 if digital
+    protected int Type;//0 if physical 1 if digital
     @Lob
     protected String url;//if  it's a digital book it has a url
 
@@ -40,17 +40,17 @@ public class Book implements Serializable {
     protected String description;
 
     @Column(nullable = false, columnDefinition = "TINYINT(1)")
-    protected int isAvailable;
+    protected boolean isAvailable;
     public Book(){
         super();
     }
 
-    public Book(String title,String author,int IsDigit,String url,Integer publicationYear,
-                   String language,Integer pageCount,String description,int isAvailable){
+    public Book(String title,String author,int Type,String url,Integer publicationYear,
+                   String language,Integer pageCount,String description,boolean isAvailable){
 
         this.title=title;
         this.author=author;
-        this.IsDigit=IsDigit;
+        this.Type=Type;
         this.url=url;
         this.publicationYear=publicationYear;
         this.language=language;
@@ -60,4 +60,3 @@ public class Book implements Serializable {
 
     }
 }
-

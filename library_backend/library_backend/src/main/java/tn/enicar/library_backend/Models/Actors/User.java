@@ -1,9 +1,11 @@
 package tn.enicar.library_backend.Models.Actors;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import tn.enicar.library_backend.Models.PhoneNumber;
+import tn.enicar.library_backend.Models.Role;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -19,6 +21,8 @@ public abstract class User implements Serializable {
     // correctly even if the code of the class has changed between serialization and deserialization.
     @Serial
     private static final long serialVersionUID = 1L;
+    @Enumerated(EnumType.STRING)
+    protected Role role;
 
     @Id
     @SequenceGenerator(
@@ -31,7 +35,6 @@ public abstract class User implements Serializable {
             generator = "user_seq"
     )
     protected Long id;
-    @Column(nullable = false)
 
     protected String name;
     @Column(nullable = false, unique = true)
@@ -39,7 +42,6 @@ public abstract class User implements Serializable {
     protected LocalDate dob;
     @Transient
     protected Integer age;
-    @Column(nullable = false)
     @Embedded
     protected PhoneNumber phoneNumber;
 
@@ -47,7 +49,14 @@ public abstract class User implements Serializable {
     @Column(nullable = false)
     protected String password;
 
+    public User(String email, String password, Role role) {
+        this.email = email;
+        this.password = password;
+        this.role =role;
+    }
+
     public Integer getAge() {
+        if (this.dob ==null) return  0;
         return  Period.between(this.dob, LocalDate.now()).getYears();
     }
     public User(
