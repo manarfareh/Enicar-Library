@@ -21,4 +21,9 @@ export class StudentsService {
       map(responses => responses.reduce((acc, curr) => [...acc, ...curr], []))
     );
   }
+
+  addStudent(student: Student): Observable<any> {
+    console.log('Student object:', student);
+    return this.http.post(`${this.apiServerUrl}/students/add`, student);
+  }
 }

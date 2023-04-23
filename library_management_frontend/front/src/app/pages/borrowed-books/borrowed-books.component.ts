@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
 import { BorrowedBooksService  } from './borrowed-books.service';
-import { Book } from './borrowed-books';
+import { BorrowedBook } from './borrowed-books';
 @Component({
   selector: 'app-borrowed-books',
   templateUrl: './borrowed-books.component.html',
@@ -9,7 +9,7 @@ import { Book } from './borrowed-books';
 })
 export class BorrowedBooksComponent implements OnInit {
 
-  books: Book[];
+  borrowedbooks: BorrowedBook[];
 
   constructor(private BorrowedBooksService: BorrowedBooksService) { }
 
@@ -19,8 +19,8 @@ export class BorrowedBooksComponent implements OnInit {
 
   private getBooks() {
     this.BorrowedBooksService.getbook().subscribe(
-      (response: Book[]) => {
-        this.books = response;
+      (response: BorrowedBook[]) => {
+        this.borrowedbooks = response;
       },
       (error: HttpErrorResponse) => {
         alert(error.message);

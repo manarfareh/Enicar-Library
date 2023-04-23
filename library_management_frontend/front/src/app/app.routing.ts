@@ -7,7 +7,6 @@ import { HomeAdminComponent } from './layouts/home-admin/home-admin.component';
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 import { LoginAdminComponent } from './pages/login-admin/login-admin.component';
 import { HomepageComponent } from './layouts/homepage/homepage.component';
-import { HomeComponent } from './layouts/home/home.component';
 const routes: Routes =[
   {
     path: '',
@@ -17,10 +16,6 @@ const routes: Routes =[
   {
     path: 'login-admin',
     component: LoginAdminComponent,
-  },
-  {
-    path: 'home1',
-    component: HomeComponent,
   },
   {
     path: 'admin',

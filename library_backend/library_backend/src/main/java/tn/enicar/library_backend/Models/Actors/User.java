@@ -22,6 +22,7 @@ public abstract class User implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
     @Enumerated(EnumType.STRING)
+    @Column(nullable = true)
     protected Role role;
 
     @Id

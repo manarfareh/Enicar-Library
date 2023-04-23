@@ -19,7 +19,7 @@ public class StudentService {
 
     public List<Student> findAllStudents()
     {
-      return   this.studentRepository.findAll();
+        return   this.studentRepository.findAll();
     }
 
     public Student findStudentById(Long id) throws Throwable {

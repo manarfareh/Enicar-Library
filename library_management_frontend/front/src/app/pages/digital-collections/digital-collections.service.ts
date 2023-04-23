@@ -36,8 +36,8 @@ export class DigitalCollectionsService {
     return this.http.delete<void>(url);
   }
 
-  updateBook(id: number, book: Book): Observable<Book> {
-    const url = `${this.apiServerUrl}/update/${id}`;
+  updateBook(book: Book): Observable<Book> {
+    const url = `${this.apiServerUrl}/Book/update/${book.id}`;
     return this.http.put<Book>(url, book, this.httpOptions)
       .pipe(
         retry(3), // Retry up to 3 times if the request fails
@@ -50,4 +50,16 @@ export class DigitalCollectionsService {
     console.error(error);
     return throwError('An error occurred. Please try again later.');
   }
+  addBook(book: Book): Observable<any> {
+    console.log('Book object:', book);
+    if(book.book_type=="article")
+    return this.http.post(`${this.apiServerUrl}/Book/addDigitalArtical`, book);
+    else if (book.book_type=="pfebook")
+    return this.http.post(`${this.apiServerUrl}/Book/addDigitalPfeBook`, book);
+    else if (book.book_type=="exam")
+    return this.http.post(`${this.apiServerUrl}/Book/addDigitalExam`, book);
+    else 
+    return this.http.post(`${this.apiServerUrl}/Book/addDigitalBook`, book);
+  }
+
 }

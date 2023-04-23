@@ -3,10 +3,8 @@ package tn.enicar.library_backend.Models.Collections;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import org.jetbrains.annotations.NotNull;
 
 import java.io.Serializable;
-import java.sql.Date;
 
 @Data
 @Entity
@@ -19,12 +17,13 @@ public class Book implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Long id;
-
+    @Column(name = "Book_Type", insertable = false, updatable = false)
+    private String Book_Type;
     protected String title;
 
     protected String author;
     @Column(nullable = false)
-    protected int Type;//0 if physical 1 if digital
+    protected int IsDigit;//0 if physical 1 if digital
     @Lob
     protected String url;//if  it's a digital book it has a url
 
@@ -40,23 +39,31 @@ public class Book implements Serializable {
     protected String description;
 
     @Column(nullable = false, columnDefinition = "TINYINT(1)")
-    protected boolean isAvailable;
+    protected int isAvailable;
     public Book(){
         super();
     }
 
-    public Book(String title,String author,int Type,String url,Integer publicationYear,
-                   String language,Integer pageCount,String description,boolean isAvailable){
+    public Book(String title,String author,int IsDigit,String url,Integer publicationYear,
+                   String language,Integer pageCount,String description,int isAvailable){
 
         this.title=title;
         this.author=author;
-        this.Type=Type;
+        this.IsDigit=IsDigit;
         this.url=url;
         this.publicationYear=publicationYear;
         this.language=language;
         this.pageCount=pageCount;
         this.description=description;
         this.isAvailable=isAvailable;
+    }
+    @Transient
+    public String getBookType() {
+
+            return this.getClass().getAnnotation(DiscriminatorValue.class).value();
 
     }
+
+
 }
+

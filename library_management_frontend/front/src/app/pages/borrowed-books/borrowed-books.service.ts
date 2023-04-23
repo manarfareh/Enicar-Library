@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {Book } from './borrowed-books';
+import {BorrowedBook } from './borrowed-books';
 import { Observable, forkJoin } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -10,14 +10,14 @@ export class BorrowedBooksService {
 
   constructor(private http: HttpClient){}
 
-  public getbook(): Observable<Book[]> {
+  public getbook(): Observable<BorrowedBook[]> {
     const endpointUrls = [
-      `${this.apiServerUrl}/Book/Borrowed`,
+      `${this.apiServerUrl}/BorrowedBook/all`,
      // `${this.apiServerUrl}/Book/Digital-Exam/all`,
      // `${this.apiServerUrl}/Book/Digital-Pfebook/all`
     ];
 
-    const observables = endpointUrls.map(url => this.http.get<Book[]>(url));
+    const observables = endpointUrls.map(url => this.http.get<BorrowedBook[]>(url));
 
     return forkJoin(observables).pipe(
       map(responses => responses.reduce((acc, curr) => [...acc, ...curr], []))

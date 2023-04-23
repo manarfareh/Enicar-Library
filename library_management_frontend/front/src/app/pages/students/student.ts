@@ -6,6 +6,7 @@ export interface Student {
        aClass:Class;
        password:string
        imageUrl:string;
+       role:Role;
   }
   export enum Class {
      info1 = "info1",
@@ -23,4 +24,9 @@ export interface Student {
      m_tic = "m_tic",
      m_arti = "m_arti",
      m_mpsdm = "m_mpsdm",
+     }
+     export enum Role  {
+
+          USER="USER",
+          ADMIN="ADMIN",
      }
