@@ -6,6 +6,7 @@ import tn.enicar.library_backend.Models.Collections.BorrowedBook;
 import tn.enicar.library_backend.Repositories.BorrowedBookRepo;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class BorrowedBookService {
@@ -17,7 +18,14 @@ public class BorrowedBookService {
 
     public static List<BorrowedBook> getAllBorrowedBook(){
 
-      // return borrowedbookRepo.getAllBorrowedBooks();
-      return  borrowedbookRepo.findAll();
+       return borrowedbookRepo.getAllBorrowedBooks();
+     // return  borrowedbookRepo.findAll();
+
+    }
+    public static Optional<BorrowedBook> findById(Long id){
+
+        return borrowedbookRepo.findById(id);
+        // return  borrowedbookRepo.findAll();
+
     }
 }

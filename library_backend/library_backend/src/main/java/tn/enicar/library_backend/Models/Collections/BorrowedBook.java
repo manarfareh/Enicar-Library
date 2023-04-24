@@ -1,13 +1,14 @@
 package tn.enicar.library_backend.Models.Collections;
 
 import jakarta.persistence.*;
+import lombok.Data;
 import tn.enicar.library_backend.Models.Actors.Student;
 
 import java.time.LocalDate;
 
 @Entity
 @Table(name = "borrowedbook")
-
+@Data
 public class BorrowedBook {
 
 

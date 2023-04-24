@@ -27,6 +27,7 @@ searchText: string;
   private getBooks() {
     this.iconsService.getbook().subscribe(
       (response: Book[]) => {
+        console.log(this.books)
         this.books = response;
       },
       (error: HttpErrorResponse) => {

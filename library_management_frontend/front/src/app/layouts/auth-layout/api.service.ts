@@ -7,7 +7,7 @@ import { Student } from 'src/app/models/student.model';
   providedIn: 'root'
 })
 export class ApiService {
-  private baseUrl ="http://localhost:8082/";
+  private baseUrl ="http://localhost:8081/";
 
 
 
