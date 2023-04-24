@@ -20,7 +20,9 @@ export const ROUTES: RouteInfo[] = [
 @Component({
   selector: 'app-navbar-user',
   templateUrl: './navbar-user.component.html',
-  styleUrls: ['./navbar-user.component.scss']
+  styleUrls: ['./navbar-user.component.scss'],
+  //  directives: [RouterModule]
+
 })
 export class NavbarUserComponent implements OnInit {
 

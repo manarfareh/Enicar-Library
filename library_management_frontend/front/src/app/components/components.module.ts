@@ -6,6 +6,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { SidebarAdminComponent } from './sidebar-admin/sidebar-admin.component';
+import { NavbarUserComponent } from './navbar-user/navbar-user.component';
 
 const routes: Routes = [
 ];
@@ -19,13 +20,16 @@ const routes: Routes = [
     FooterComponent,
     NavbarComponent,
     SidebarComponent,
-    SidebarAdminComponent
+    SidebarAdminComponent,
+    NavbarUserComponent
   ],
   exports: [
     FooterComponent,
     NavbarComponent,
     SidebarComponent,
-    SidebarAdminComponent
+    SidebarAdminComponent,
+    NavbarUserComponent
+
   ]
 })
 export class ComponentsModule { }
