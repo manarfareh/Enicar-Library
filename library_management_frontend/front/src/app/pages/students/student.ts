@@ -1,4 +1,5 @@
 export interface Student {
+     id:number;
      name:string;
       email:string;
        dob:Date;
@@ -6,7 +7,7 @@ export interface Student {
        aClass:Class;
        password:string
        imageUrl:string;
-       role:Role;
+       Role:Role;
   }
   export enum Class {
      info1 = "info1",

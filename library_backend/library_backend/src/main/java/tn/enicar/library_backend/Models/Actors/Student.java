@@ -7,11 +7,10 @@ import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import tn.enicar.library_backend.Models.Class;
 import tn.enicar.library_backend.Models.PhoneNumber;
 import tn.enicar.library_backend.Models.Role;
 import tn.enicar.library_backend.Security.Token.Token;
-
+import tn.enicar.library_backend.Models.Class;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Collection;
@@ -29,7 +28,7 @@ public class Student extends User implements Serializable, UserDetails {
     private List<Token> tokens;
 
 
-    public Student(String name, String email, LocalDate dob, PhoneNumber phoneNumber, Class aClass ,String password,String imageUrl) {
+    public Student(String name, String email, LocalDate dob, PhoneNumber phoneNumber, Class aClass , String password, String imageUrl) {
         super(name, email, dob, phoneNumber,password,imageUrl);
         this.aClass = aClass;
     }
@@ -74,5 +73,9 @@ public class Student extends User implements Serializable, UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    public void setClass(String aClass) {
+        this.aClass.setClassName(aClass);
     }
 }

@@ -7,12 +7,16 @@ import { HomeAdminComponent } from './layouts/home-admin/home-admin.component';
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 import { LoginAdminComponent } from './pages/login-admin/login-admin.component';
 import { HomepageComponent } from './layouts/homepage/homepage.component';
+import { LoginComponent } from './pages/login/login.component';
+import { ListBookComponent } from './pages/listbook/listbook.component';
 const routes: Routes =[
   {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full',
   },
+  { path: "login", component: LoginComponent },
+  { path: "listbook", component: ListBookComponent },
   {
     path: 'login-admin',
     component: LoginAdminComponent,

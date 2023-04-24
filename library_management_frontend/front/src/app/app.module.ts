@@ -10,6 +10,7 @@ import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BookFilterPipe } from './pages/digital-collections/book-filter.pipe';
+import { BookFilterPipe2 } from './pages/icons/book-filter.pipe';
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 import { HomeAdminComponent } from './layouts/home-admin/home-admin.component';
@@ -22,6 +23,7 @@ import { StaffComponent } from './pages/staff/staff.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { LoginAdminComponent } from './pages/login-admin/login-admin.component';
 import { HomepageComponent } from './layouts/homepage/homepage.component';
+import { ListBookComponent } from './pages/listbook/listbook.component';
 
 @NgModule({
   imports: [
@@ -47,7 +49,9 @@ import { HomepageComponent } from './layouts/homepage/homepage.component';
     StaffComponent,
     LoginAdminComponent,
     HomepageComponent,
-    BookFilterPipe
+    BookFilterPipe,
+    BookFilterPipe2,
+    ListBookComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

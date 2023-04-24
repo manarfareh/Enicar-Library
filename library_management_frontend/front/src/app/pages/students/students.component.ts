@@ -41,6 +41,7 @@ export class StudentsComponent implements OnInit {
     const Role = form.value.Role;
 
     const student: Student = {
+      id: null,
       name: name,
       email: email,
       dob: dob,
@@ -48,14 +49,37 @@ export class StudentsComponent implements OnInit {
       aClass: aClass,
       password: password,
       imageUrl: imageUrl,
-      role:Role
+      Role:Role
     };
 
     this.studentsService.addStudent(student).subscribe(() => {
       // do something after student is added
     });
   }
+  loadStudents() {
+    this.studentsService.getStudent().subscribe((students: Student[]) => {
+      this.students = students;
+    });
+  }
 
+  deleteStudent(id: number) {
+    this.studentsService.deleteStudent(id)
+      .subscribe(() => {
+        console.log(`student with ID ${id} deleted successfully.`);
+        this.loadStudents();
+      }, error => {
+        console.error(`Error deleting student with ID ${id}: `, error);
+      });
+  }
+
+
+  saveChanges(student: Student) {
+    this.studentsService.updateStudent(student).subscribe(() => {
+      // Do something when the book is updated successfully
+    }, (error) => {
+      // Handle error
+    });
+  }
 
 
   }

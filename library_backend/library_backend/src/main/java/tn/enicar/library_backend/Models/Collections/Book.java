@@ -27,7 +27,7 @@ public class Book implements Serializable {
     @Lob
     protected String url;//if  it's a digital book it has a url
 
-
+    protected String Imageurl;
     protected Integer publicationYear;
 
     protected String language;

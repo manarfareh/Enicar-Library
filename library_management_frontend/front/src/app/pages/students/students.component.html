@@ -103,8 +103,8 @@
               <td>
                 <div class="btn-group">
                   <button class="btn btn-primary" data-toggle="modal" [attr.data-target]="'#detailStudentModal' + i" (click)="selectedStudent = student">View Details</button>
-                  <button type="button" class="btn btn-success">Modify</button>
-                  <button type="button" class="btn btn-danger">Delete</button>
+                  <button class="btn btn-primary" data-toggle="modal" [attr.data-target]="'#modifyStudentModal' + i" (click)="selectedStudent = student">Modify</button>
+                  <button type="button" (click)="deleteStudent(student.id)" class="btn btn-danger">Delete</button>
                 </div>
               </td>
             </tr>
@@ -114,7 +114,7 @@
     </div>
   </div>
 
-  <!-- Book Detail Modals -->
+  <!-- studentDetail Modals -->
   <div *ngFor="let student of students; let i = index">
     <div class="modal fade" [id]="'detailStudentModal' + i" tabindex="-1" role="dialog" aria-labelledby="detailStudentModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -133,6 +133,7 @@
             <p>Class: {{student.aClass}}</p>
             <p>Password: {{student.password}}</p>
             <p>Image URL: {{student.imageUrl}}</p>
+            <p>Role: {{student.Role}}</p>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
@@ -142,3 +143,72 @@
     </div>
   </div>
 </div>
+
+<div *ngFor="let student of students; let i = index">
+  <div class="modal fade" [id]="'modifyStudentModal' + i" tabindex="-1" role="dialog" aria-labelledby="modifyStudentModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <form class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modifyStudentModalLabel">Edit {{ student.name }}</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" id="name" [(ngModel)]="student.name" name="name">
+          </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" [(ngModel)]="student.email" name="email">
+          </div>
+          <div class="form-group">
+            <label for="dob">Date of Birth:</label>
+            <input type="date" class="form-control" id="dob" [(ngModel)]="student.dob" name="dob">
+          </div>
+          <div class="form-group">
+            <label for="phoneNumber">Phone Number:</label>
+            <input type="tel" class="form-control" id="phoneNumber" [(ngModel)]="student.phoneNumber" name="phoneNumber">
+          </div>
+          <div class="form-group">
+            <label for="aClass">Class:</label>
+            <select class="form-control" id="aClass" [(ngModel)]="student.aClass" name="aClass">
+              <option value="info1">Info 1</option>
+              <option value="info2">Info 2</option>
+              <option value="info3">Info 3</option>
+              <option value="meca1">Meca 1</option>
+              <option value="meca2">Meca 2</option>
+              <option value="meca3">Meca 3</option>
+              <option value="gsil1">Gsil 1</option>
+              <option value="gsil2">Gsil 2</option>
+              <option value="gsil3">Gsil 3</option>
+              <option value="infot1">Infot 1</option>
+              <option value="infot2">Infot 2</option>
+              <option value="infot3">Infot 3</option>
+              <option value="m_tic">M-TIC</option>
+              <option value="m_arti">M-ARTI</option>
+              <option value="m_mpsdm">M-MPSDM</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" class="form-control" id="password" [(ngModel)]="student.password" name="password">
+          </div>
+          <div class="form-group">
+            <label for="imageUrl">Image URL</label>
+            <input type="imageUrl" class="form-control" id="imageUrl" [(ngModel)]="student.imageUrl" name="imageUrl">
+            </div>
+            <div class="form-group">
+              <label for="Role">Role</label>
+              <input type="Role" class="form-control" id="Role" [(ngModel)]="student.Role" name="Role">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="saveChanges(student)">Save Changes</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
