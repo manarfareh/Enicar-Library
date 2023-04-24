@@ -1,9 +1,10 @@
-export interface Student {
+export class Student {
     id: number;
     name: string;
     email: string;
-    dob: string;
+    dob: Date;
     phoneNumber: string;
     imageUrl: string;
     aClass: string;
+    age : number
   }
