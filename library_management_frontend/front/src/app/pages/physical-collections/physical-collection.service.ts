@@ -6,10 +6,11 @@ import {Book } from './physical-collection';
 import {  forkJoin } from 'rxjs';
 import { retry } from 'rxjs/operators';
 import { map } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 @Injectable({providedIn: 'root'})
 export class PhysicalCollectionsService {
-  private apiServerUrl = 'http://localhost:8081';
+  private apiServerUrl = environment.apiUrl;
 
   constructor(private http: HttpClient){}
   httpOptions = {

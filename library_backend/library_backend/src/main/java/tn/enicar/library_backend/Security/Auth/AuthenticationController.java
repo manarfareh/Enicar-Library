@@ -4,8 +4,11 @@ package tn.enicar.library_backend.Security.Auth;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import tn.enicar.library_backend.Models.Actors.Student;
+import tn.enicar.library_backend.Services.StudentService;
 
 import java.io.IOException;
 
@@ -15,6 +18,8 @@ import java.io.IOException;
 public class AuthenticationController {
 
     private final AuthenticationService service;
+    private final StudentService studentService;
+
 
     @PostMapping("/register")
     public ResponseEntity<AuthenticationResponse> register(
@@ -29,6 +34,8 @@ public class AuthenticationController {
     ) {
         return ResponseEntity.ok("aaaaaaaa");
     }
+
+
 
     @PostMapping("/authenticate")
     public ResponseEntity<AuthenticationResponse> authenticate(

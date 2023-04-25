@@ -1,13 +1,16 @@
-<div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 600px; background-image: url(assets/img/theme/profile-cover.jpg); background-size: cover; background-position: center top;">
+<div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 600px; background-image: url(https://images.theconversation.com/files/45159/original/rptgtpxd-1396254731.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=754&h=502&fit=crop&dpr=1); background-size: cover; background-position: center top;">
   <!-- Mask -->
-  <span class="mask bg-gradient-danger opacity-8"></span>
+  <span class="mask bg-gradient-primary opacity-8"></span>
   <!-- Header container -->
   <div class="container-fluid d-flex align-items-center">
     <div class="row">
       <div class="col-lg-7 col-md-10">
         <h1 class="display-2 text-white">Hello {{currentUser.name}}</h1>
-        <a href="#!" class="btn btn-info">Edit profile</a>
+      </div><br><br><br>
+      <div class="col-xs-7 col-md-10">
+        <h3 class="text-white">ENICAR Student</h3>
       </div>
+
     </div>
   </div>
 </div>
@@ -19,7 +22,7 @@
           <div class="col-lg-3 order-lg-2">
             <div class="card-profile-image">
               <a href="javascript:void(0)">
-                <img src="assets/img/theme/team-4-800x800.jpg" class="rounded-circle">
+                <img src= {{currentUser.imageUrl}} class="rounded-circle" >
               </a>
             </div>
           </div>
@@ -37,35 +40,23 @@
           </div>
           <div class="text-center">
             <h3>
-              {{currentUser.name}}
-            </h3>
+              Welcome to Enicar Library!     </h3>
             <div class="h5 font-weight-300">
-              <i class="ni location_pin mr-2"></i> {{currentUser.aClass}}
+              <i class="ni location_pin mr-2"></i> {{currentUser.aClass}} We're thrilled to provide you with the resources and services you need for your academic pursuits.
+            </div><br><br>
+  
+
+     
+            <div>
+              <i class="ni business_briefcase-18 mr-2"></i> Phone Number  {{currentUser.phoneNumber.phoneNumber}}
             </div>
-            <div class="h5 mt-4">
-              <i class="ni business_briefcase-24 mr-2"></i>ENICAR Student
-            </div>
+            <br>
             <div>
               <i class="ni education_hat mr-2"></i>National Engineering School of Carthage
             </div>
             <hr class="my-4" />
         
           </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-xl-8 order-xl-1">
-      <div class="card bg-secondary shadow">
-        <div class="card-header bg-white border-0">
-          <div class="row align-items-center">
-            <div class="col-8">
-              <h3 class="mb-0">My collections</h3>
-            </div>
-           
-          </div>
-        </div>
-        <div class="card-body">
-          
         </div>
       </div>
     </div>

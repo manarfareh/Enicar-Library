@@ -64,6 +64,7 @@ public class AuthenticationService {
                 .build();
     }
 
+
     private void saveUserToken(Student user, String jwtToken) {
         var token = Token.builder()
                 .student(user)

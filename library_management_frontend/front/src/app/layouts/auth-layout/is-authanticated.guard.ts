@@ -17,6 +17,7 @@ export class IsAuthanticatedGuard implements CanActivate {
       tap((isLoggedIn) => {
         if (!isLoggedIn) {
           this.router.navigate(['login']);
+          console.log("ani authGard ne5dem is logg : ",isLoggedIn)
         }
       })
     );

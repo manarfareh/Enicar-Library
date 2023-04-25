@@ -1,10 +1,17 @@
 package tn.enicar.library_backend.Resources;
 
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import tn.enicar.library_backend.Models.Actors.Student;
 import tn.enicar.library_backend.Models.Collections.Book;
+import tn.enicar.library_backend.Models.Collections.BorrowedBook;
+import tn.enicar.library_backend.Security.Auth.AuthenticationService;
+import tn.enicar.library_backend.Security.Config.JwtService;
+import tn.enicar.library_backend.Services.BorrowedBookService;
+import tn.enicar.library_backend.Services.BorrowingRequestService;
+
 import tn.enicar.library_backend.Services.StudentService;
 
 import java.util.List;
@@ -15,9 +22,16 @@ import java.util.Optional;
 
 public class StudentRessource {
     private final StudentService studentService;
-
-    public StudentRessource(StudentService studentService) {
+    private final AuthenticationService authenticationService;
+    private final JwtService jwtService ;
+    private final BorrowingRequestService borrowingRequestService;
+    private final BorrowedBookService borrowedBookService;
+    public StudentRessource(StudentService studentService, JwtService jwtService, AuthenticationService authenticationService, JwtService jwtService1, BorrowingRequestService borrowingRequestService, BorrowedBookService borrowedBookService) {
         this.studentService = studentService;
+        this.authenticationService = authenticationService;
+        this.jwtService = jwtService1;
+        this.borrowingRequestService = borrowingRequestService;
+        this.borrowedBookService = borrowedBookService;
     }
     @GetMapping("/all")
     public ResponseEntity<List<Student>> getAllEmployees () {
@@ -66,5 +80,21 @@ public class StudentRessource {
             return ResponseEntity.notFound().build();
         }
     }
+
+    @GetMapping("/myprofile")
+    public ResponseEntity<Student> userProfile (  HttpServletRequest request) throws Throwable {
+        Student student = studentService.findStudentByEmail(jwtService.extractUsername( request.getHeader("Authorization").replace("Bearer ", "")));
+        return new ResponseEntity<>(student, HttpStatus.OK);
+    }
+
+    @PostMapping("/mycollections")
+    public ResponseEntity<List<BorrowedBook>> processFormData(@RequestBody Long id) {
+            List<BorrowedBook> myBooks = this.borrowedBookService.findBorrowedBookById(id);
+        return new ResponseEntity<>(myBooks, HttpStatus.OK);
+    }
+
+
+
+
 
 }

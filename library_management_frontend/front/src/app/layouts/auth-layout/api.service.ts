@@ -2,12 +2,13 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Student } from 'src/app/models/student.model';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
-  private baseUrl ="http://localhost:8082/";
+  private apiServerUrl = environment.apiUrl;
 
 
 
@@ -26,11 +27,13 @@ export class ApiService {
       })
     };
 
-    return this.http.get<Student>(`${this.baseUrl}students/myprofile`,httpOptions);
+    return this.http.get<Student>(`${this.apiServerUrl}/students/myprofile`,httpOptions);
 
   }
-  sendStudentId(){
 
+  
+  
+  sendStudentId(){
     this.http.post('http://localhost:8082/students/mycollections', this.getUserData().subscribe((r) =>{r.id})).subscribe((response: any) => {
     console.log(response);
   });
