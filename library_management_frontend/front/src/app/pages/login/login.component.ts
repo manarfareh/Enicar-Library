@@ -38,34 +38,6 @@ export class LoginComponent implements OnInit, OnDestroy {
       }
     )
   }
-  // loginProcess()
-  // {
-  //   if(this.formGroup.valid){
-  //     this.authService.login(this.formGroup.value).subscribe(result =>{
-  //       if(result.success){
-  //         console.log(result);
-  //         alert(result.message);
-  //       }else{
-  //         alert(result.message);
-  //         console.log(result);
-
-  //       }
-  //     } )
-  //   }
-  // }
-  // login(email: string, password: string) {
-  //   this.loading = true;
-  //   this.authService.login(email, password)
-  //     .subscribe(
-  //       data => {
-  //         localStorage.setItem('currentUser', JSON.stringify(data));
-  //         this.router.navigate(['/home']);
-  //       },
-  //       error => {
-  //         this.error = error;
-  //         this.loading = false;
-  //       });
-  // }
 
   submitForm(){
     this.authService.login(this.email,this.password).subscribe(result =>{
@@ -78,6 +50,8 @@ export class LoginComponent implements OnInit, OnDestroy {
               this.router.navigate(['/home']);
             }else{
               console.log(result);
+              this.error = 'Invalid email or password';
+              console.error(this.error);
               alert("8alett");
               
 
@@ -85,17 +59,7 @@ export class LoginComponent implements OnInit, OnDestroy {
           } )
 
   }
-  // submitForm2(){
-  //   // if (this.formGroup.invalid) {
-  //   //   return;
-  //   // }
 
-  //   this.authService
-  //     .login2(this.formGroup.get('email')?.value, this.formGroup.get('password')?.value)
-  //     .subscribe((response) => {
-  //       this.router.navigate(['/home']);
-  //     });
-  // }
  
   }
   

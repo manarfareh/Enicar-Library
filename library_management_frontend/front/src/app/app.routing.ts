@@ -9,6 +9,7 @@ import { LoginAdminComponent } from './pages/login-admin/login-admin.component';
 import { HomepageComponent } from './layouts/homepage/homepage.component';
 import { LoginComponent } from './pages/login/login.component';
 import { ListBookComponent } from './pages/listbook/listbook.component';
+import { IsLoggedInGuard } from './layouts/auth-layout/is-logged-in.guard';
 import { HomeComponent } from './pages/home/home.component';
 const routes: Routes =[
   {

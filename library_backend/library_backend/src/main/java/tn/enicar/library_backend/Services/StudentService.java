@@ -4,19 +4,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tn.enicar.library_backend.Exception.UserNotFoundException;
 import tn.enicar.library_backend.Models.Actors.Student;
-import tn.enicar.library_backend.Models.Collections.Book;
 import tn.enicar.library_backend.Repositories.StudentRepository;
-
-import java.util.List;
 import java.util.Optional;
+import java.util.List;
 
 @Service
 public class StudentService {
-    private static  StudentRepository studentRepository;
+    private final StudentRepository studentRepository;
 
     @Autowired
     public StudentService(StudentRepository studentRepository) {
         this.studentRepository = studentRepository;
+
     }
 
     public List<Student> findAllStudents()
@@ -37,9 +36,8 @@ public class StudentService {
     {
         this.studentRepository.deleteStudentById(id);
     }
-    public static Student save(Student student){
-
-       studentRepository.save(student);
+    public Student save(Student student){
+        this.studentRepository.save(student);
         return student;
     }
     public Optional<Student> findById(Long id) {
@@ -48,8 +46,13 @@ public class StudentService {
         return studentRepository.findById(id);
     }
 
-    public static void deleteById(Long id){
+    public void deleteById(Long id){
 
-        studentRepository.deleteById(id);
+        this.studentRepository.deleteById(id);
+    }
+    public Student findStudentByEmail(String email) throws Throwable {
+        return this.studentRepository.findStudentByEmail(email)
+                .orElseThrow(() -> new UserNotFoundException("User was not found"));
     }
 }
+

@@ -1,5 +1,6 @@
 package tn.enicar.library_backend;
 
+import org.apache.log4j.chainsaw.Main;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -8,12 +9,17 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
 import java.util.Arrays;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 @SpringBootApplication
 public class LibraryBackendApplication {
 
+	private static Logger logger = Logger.getLogger("library log");
 	public static void main(String[] args) {
+
 		SpringApplication.run(LibraryBackendApplication.class, args);
+		logger.info("just started");
 	}
 
 	@Bean

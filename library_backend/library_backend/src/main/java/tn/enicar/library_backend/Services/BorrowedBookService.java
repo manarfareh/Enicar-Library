@@ -6,12 +6,13 @@ import tn.enicar.library_backend.Models.Actors.Staff;
 import tn.enicar.library_backend.Models.Collections.BorrowedBook;
 import tn.enicar.library_backend.Repositories.BorrowedBookRepo;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
 @Service
 public class BorrowedBookService {
-    public static BorrowedBookRepo borrowedbookRepo = null;
+    public static BorrowedBookRepo borrowedbookRepo;
     @Autowired
     public BorrowedBookService(BorrowedBookRepo borrowedbookRepo){
         this.borrowedbookRepo=borrowedbookRepo;
@@ -44,4 +45,10 @@ public class BorrowedBookService {
         // return  borrowedbookRepo.findAll();
 
     }
+
+    public List<BorrowedBook> findBorrowedBookById(Long id) {
+        return borrowedbookRepo.findAllById(Collections.singleton(id));
+    }
+
+
 }
