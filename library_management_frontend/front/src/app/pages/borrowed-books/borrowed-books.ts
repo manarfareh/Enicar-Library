@@ -4,8 +4,6 @@ export interface BorrowedBook {
   book_id:number;
   borrow_date:Date;
   return_date:Date;
-  student :Student;
-  book:Book;
   }
   export interface Book {
     id: number;

@@ -8,15 +8,15 @@
           <table class="table table-bordered">
               <thead>
                 <tr>
-                  <th>student_id</th>
-                  <th>student_id</th>
+                  <th>student name</th>
+                  <th>student title</th>
                   <th>Action</th>
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let borrowedbook of borrowedbooks">
-                  <td>{{ borrowedbook.id }}</td>
-                  <td>{{ borrowedbook.book_id }}</td>
+                <tr *ngFor="let borrowedbook of borrowedbooks; let i = index" [id]="'book' + i">
+                  <td>{{ borrowedbook.student.name }}</td>
+                  <td>{{ borrowedbook.book.title }}</td>
                   <td>
                     <div class="btn-group">
                       <button class="btn btn-primary" data-toggle="modal" [attr.data-target]="'#detailBookModal' + i" (click)="selectedBook = book">View Details</button>

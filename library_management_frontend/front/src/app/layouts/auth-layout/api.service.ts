@@ -8,7 +8,11 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class ApiService {
+<<<<<<< HEAD
   private apiServerUrl = environment.apiUrl;
+=======
+  private baseUrl ="http://localhost:8081/";
+>>>>>>> 1fb931a06dbed5ed16a540519128a0d283b57bed
 
 
 
