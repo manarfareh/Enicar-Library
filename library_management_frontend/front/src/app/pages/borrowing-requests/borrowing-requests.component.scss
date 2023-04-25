@@ -1,0 +1,24 @@
+table {
+    th {
+      text-align: center;
+      background-color: #3a638f;
+      color: #fff;
+    }
+  
+    td {
+      vertical-align: middle;
+    }
+  }
+  
+  .btn-group {
+    display: flex;
+  
+    .btn {
+      flex-grow: 1;
+      margin-right: 5px;
+  
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }

@@ -1,32 +1,172 @@
-<div class="container mt-5">
-    <h2>List of Staffs</h2>
-    <hr>
-  
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<div class="container">
+    <h1>You can add a new staff :</h1>
     <div class="row">
-      <div class="col-md-12">
-        <div class="table-responsive">
-          <table class="table table-bordered">
-            <thead>
-              <tr>
-                <th>name</th>
-                <th>password</th>
-                <th> More</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let  staff of staffs ">
-                <td>{{ staff.name }}</td>
-                <td>{{ staff.password }}</td>
-                <td>
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-primary"  >View Details</button>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+      <div class="col-md-6">
+        <button class="btn btn-primary" style="left: 90%; " data-toggle="modal" data-target="#addStaffModal">Add Staff</button>
+      </div>
+    </div>
+  </div>
+ <!-- Add Student Modal -->
+<div class="modal fade" id="addStaffModal" tabindex="-1" role="dialog" aria-labelledby="addStaffModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addStaffModalLabel">Add Staff</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form #staffForm="ngForm" (ngSubmit)="addStaff(staffForm)">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Enter name" ngModel required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" ngModel required>
+          </div>
+          <div class="form-group">
+            <label for="dob">Date of Birth</label>
+            <input type="date" class="form-control" id="dob" name="dob" placeholder="Enter date of birth" ngModel required>
+          </div>
+          <div class="form-group">
+            <label for="phoneNumber">Phone Number</label>
+            <input type="tel" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Enter phone number" ngModel required>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" ngModel required>
+          </div>
+          <div class="form-group">
+            <label for="imageUrl">Image URL</label>
+            <input type="text" class="form-control" id="imageUrl" name="imageUrl" placeholder="Enter imageUrl" ngModel required>
+            </div>
+            <div class="form-group">
+              <label for="author">Role</label>
+              <input type="text" class="form-control" id="Role" name="Role" placeholder="Enter Role" ngModel required>
+            </div>
+          
+            
+       
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button type="button" type="submit" class="btn btn-primary" id="addStaffBtn">Add Staff</button>
+      </div>
+    </form>
+  </div>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-5">
+  <h2>List of Staff</h2>
+  <hr>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>email</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let stuff of staffs; let i = index" [id]="'staff' + i">
+              <td>{{ stuff.name }}</td>
+              <td>{{ stuff.email }}</td>
+              <td>
+                <div class="btn-group">
+                  <button class="btn btn-primary" data-toggle="modal" [attr.data-target]="'#detailStaffModal' + i" (click)="selectedStaff = staff">View Details</button>
+                  <button class="btn btn-primary" data-toggle="modal" [attr.data-target]="'#modifyStaffModal' + i" (click)="selectedStaff = staff">Modify</button>
+                  <button type="button" (click)="deleteStaff(staff.id)" class="btn btn-danger">Delete</button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- studentDetail Modals -->
+  <div *ngFor="let staff of staffs; let i = index">
+    <div class="modal fade" [id]="'detailStaffModal' + i" tabindex="-1" role="dialog" aria-labelledby="detailStaffModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="detailStaffModalLabel">{{ staff.name }}</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <h2>{{staff.name}}</h2>
+            <p>Email: {{staff.email}}</p>
+            <p>Date of Birth: {{staff.dob}}</p>
+            <p>Phone Number: {{staff.phoneNumber}}</p>
+            <p>Password: {{staff.password}}</p>
+            <p>Image URL: {{staff.imageUrl}}</p>
+            <p>Role: {{staff.Role}}</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          </div>
         </div>
       </div>
     </div>
-  
+  </div>
+</div>
+
+<div *ngFor="let staff of staffs; let i = index">
+  <div class="modal fade" [id]="'modifyStaffModal' + i" tabindex="-1" role="dialog" aria-labelledby="modifyStaffModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <form class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modifyStaffModalLabel">Edit {{ staff.name }}</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" id="name" [(ngModel)]="staff.name" name="name">
+          </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" [(ngModel)]="staff.email" name="email">
+          </div>
+          <div class="form-group">
+            <label for="dob">Date of Birth:</label>
+            <input type="date" class="form-control" id="dob" [(ngModel)]="staff.dob" name="dob">
+          </div>
+          <div class="form-group">
+            <label for="phoneNumber">Phone Number:</label>
+            <input type="tel" class="form-control" id="phoneNumber" [(ngModel)]="staff.phoneNumber" name="phoneNumber">
+          </div>
+          <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" class="form-control" id="password" [(ngModel)]="staff.password" name="password">
+          </div>
+          <div class="form-group">
+            <label for="imageUrl">Image URL</label>
+            <input type="imageUrl" class="form-control" id="imageUrl" [(ngModel)]="staff.imageUrl" name="imageUrl">
+            </div>
+            <div class="form-group">
+              <label for="Role">Role</label>
+              <input type="Role" class="form-control" id="Role" [(ngModel)]="staff.Role" name="Role">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="saveChanges(staff)">Save Changes</button>
+          </div>
+        </form>
+      </div>
+    </div>
   </div>

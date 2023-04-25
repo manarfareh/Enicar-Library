@@ -59,7 +59,6 @@ public class StudentRessource {
             student.setPassword(newStudent.getPassword());
             student.setImageUrl(newStudent.getImageUrl());
             student.setRole(newStudent.getRole());
-
             Student updatedStudent = studentService.save(student);
             return ResponseEntity.ok(updatedStudent);
         } else {

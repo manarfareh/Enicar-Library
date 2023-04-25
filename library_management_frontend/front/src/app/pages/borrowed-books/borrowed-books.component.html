@@ -19,9 +19,9 @@
                   <td>{{ borrowedbook.book.title }}</td>
                   <td>
                     <div class="btn-group">
-                      <button class="btn btn-primary" data-toggle="modal" [attr.data-target]="'#detailBookModal' + i" (click)="selectedBook = book">View Details</button>
-                      <button class="btn btn-primary" data-toggle="modal" [attr.data-target]="'#modifyBookModal' + i" (click)="selectedBook = book">Modify</button>
-                      <button type="button" (click)="deleteBook(book.id)" class="btn btn-danger">Delete</button>
+                      <button class="btn btn-primary" data-toggle="modal" [attr.data-target]="'#detailBookModal' + i" (click)="selectedBook = borrowedbook">View Details</button>
+                      <button class="btn btn-primary" data-toggle="modal" [attr.data-target]="'#modifyBookModal' + i" (click)="selectedBook = borrowedbook">Modify</button>
+                      <button type="button" (click)="deleteBook(borrowedbook.id)" class="btn btn-danger">Delete</button>
                     </div>
                   </td>
                 </tr>
@@ -45,10 +45,13 @@
             </button>
           </div>
           <div class="modal-body">
-            <p>student_id: {{borrowedbook.student_id}}</p>
-            <p>book_id: {{borrowedbook.book_id}}</p>
-            <p>borrow_date: {{borrowedbook.borrow_date}}</p>
-            <p>return_date: {{borrowedbook.return_date}}</p>
+            <p>borrowing id: {{borrowedbook.id}}</p>
+            <p>student name: {{borrowedbook.student.name}}</p>
+            <p>book title: {{borrowedbook.book.title}}</p>
+            <p>borrow date: {{borrowedbook.borrow_date  | date}}</p>
+            <p>return date: {{borrowedbook.return_date  | date}}</p>
+            <p>student id: {{borrowedbook.student.id}}</p>
+            <p>book id: {{borrowedbook.book.id}}</p>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
@@ -71,19 +74,19 @@
         </div>
         <div class="modal-body">
           <div class="form-group">
-            <label for="title">student_id:</label>
-            <input type="text" class="form-control" id="student_id" [(ngModel)]="borrowedbook.student_id" name="student_id">
+            <label for="title">student id:</label>
+            <input type="text" class="form-control" id="borrowedbook.student.id" [(ngModel)]="borrowedbook.student.id" name="borrowedbook.student.id">
           </div>
           <div class="form-group">
-            <label for="author">book_id:</label>
-            <input type="text" class="form-control" id="book_id" [(ngModel)]="borrowedbook.book_id" name="book_id">
+            <label for="author">book id:</label>
+            <input type="text" class="form-control" id="borrowedbook.book.id" [(ngModel)]="borrowedbook.book.id" name="borrowedbook.book.id">
           </div>
           <div class="form-group">
-            <label for="publicationYear">borrow_date:</label>
+            <label for="publicationYear">borrow date:</label>
             <input type="number" class="form-control" id="borrow_date" [(ngModel)]="borrowedbook.borrow_date" name="borrow_date">
           </div>
           <div class="form-group">
-            <label for="description">return_date:</label>
+            <label for="description">return date:</label>
             <textarea class="form-control" id="return_date" [(ngModel)]="borrowedbook.return_date" name="return_date"></textarea>
           </div>
         </div>

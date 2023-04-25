@@ -10,6 +10,7 @@ import tn.enicar.library_backend.Models.PhoneNumber;
 import tn.enicar.library_backend.Security.Token.Token;
 
 import java.io.Serializable;
+import java.sql.Date;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -19,7 +20,7 @@ import java.util.List;
 @NoArgsConstructor
 public class Staff extends User implements Serializable {
 
-    public Staff(String name, String email, LocalDate dob, PhoneNumber phoneNumber,String password,String imageUrl) {
+    public Staff(String name, String email, Date dob, PhoneNumber phoneNumber, String password, String imageUrl) {
         super(name, email, dob, phoneNumber,password,imageUrl);
     }
 }

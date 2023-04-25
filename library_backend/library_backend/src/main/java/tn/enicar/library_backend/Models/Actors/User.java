@@ -9,6 +9,7 @@ import tn.enicar.library_backend.Models.Role;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.sql.Date;
 import java.time.LocalDate;
 import java.time.Period;
 
@@ -40,7 +41,7 @@ public abstract class User implements Serializable {
     protected String name;
     @Column(nullable = false, unique = true)
     protected String email; //mail @enicar.ucar.tn
-    protected LocalDate dob;
+    protected Date dob;
     @Transient
     protected Integer age;
     @Embedded
@@ -56,15 +57,12 @@ public abstract class User implements Serializable {
         this.role =role;
     }
 
-    public Integer getAge() {
-        if (this.dob ==null) return  0;
-        return  Period.between(this.dob, LocalDate.now()).getYears();
-    }
+
     public User(
             Long id,
             String name,
             String email,
-            LocalDate dob,
+            Date dob,
             PhoneNumber phoneNumber,
             String password,
             String imageUrl
@@ -85,7 +83,7 @@ public abstract class User implements Serializable {
 
     public User(String name,
                 String email,
-                LocalDate dob,
+                Date dob,
                 PhoneNumber phoneNumber,
                 String password,
                 String imageUrl)

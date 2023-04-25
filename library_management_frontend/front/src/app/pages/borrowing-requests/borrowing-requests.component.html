@@ -1,0 +1,37 @@
+<div class="container mt-5">
+    <h2>List of Borrowing Requests</h2>
+    <hr>
+  
+    <div class="row">
+      <div class="col-md-12">
+        <div class="table-responsive">
+          <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Date Request</th>
+                  <th>Student</th>
+                  <th>Book</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let request of borrowingRequests">
+                  <td>{{ request.id }}</td>
+                  <td>{{ request.dateRequest}}</td>
+                  <td>{{ request.student.name}}</td>
+                  <td>{{ request.book.title }}</td>
+                  <td>
+                    <div class="btn-group">
+                      <button class="btn btn-primary" (click)="onAccept(request)">Accept</button>
+                      <button class="btn btn-primary" (click)="onRefuse(request)">Refuse</button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
+      </div>
+    </div>
+  
+  </div>

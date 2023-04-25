@@ -18,7 +18,7 @@ export class StudentsService {
     })
   };
   public deleteStudent(studentId: number): Observable<void> {
-    const url = `${this.apiServerUrl}/Students/delete/${studentId}`;
+    const url = `${this.apiServerUrl}/students/delete/${studentId}`;
     return this.http.delete<void>(url);
   }
 

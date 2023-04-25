@@ -12,7 +12,7 @@ export const HomeAdminRoutes: Routes = [
     { path: 'physical-collections',      component: PhysicalCollectionsComponent },
     { path: 'digital-collections',      component: DigitalCollectionsComponent },
     { path: 'borrowed-books',      component: BorrowedBooksComponent },
-    { path: 'aborrowing-requests',      component: BorrowingRequestsComponent },
+    { path: 'borrowing-requests',      component: BorrowingRequestsComponent },
     { path: 'students',      component: StudentsComponent },
     { path: 'staff',      component: StaffComponent }
 ];

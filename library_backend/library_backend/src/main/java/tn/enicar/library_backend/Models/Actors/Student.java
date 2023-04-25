@@ -1,18 +1,23 @@
 package tn.enicar.library_backend.Models.Actors;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
+import org.springframework.context.annotation.Import;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import tn.enicar.library_backend.Models.PhoneNumber;
 import tn.enicar.library_backend.Models.Role;
+import tn.enicar.library_backend.Security.Config.SecurityConfiguration;
 import tn.enicar.library_backend.Security.Token.Token;
 import tn.enicar.library_backend.Models.Class;
 import java.io.Serializable;
+import java.sql.Date;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -20,6 +25,7 @@ import java.util.List;
 @Table(name = "T_STUDENT" ,  uniqueConstraints = {@UniqueConstraint(columnNames = {"email"})})
 @AllArgsConstructor
 @NoArgsConstructor
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Student extends User implements Serializable, UserDetails {
     @Enumerated(EnumType.STRING)
     private Class aClass;
@@ -28,7 +34,7 @@ public class Student extends User implements Serializable, UserDetails {
     private List<Token> tokens;
 
 
-    public Student(String name, String email, LocalDate dob, PhoneNumber phoneNumber, Class aClass , String password, String imageUrl) {
+    public Student(String name, String email, Date dob, PhoneNumber phoneNumber, Class aClass , String password, String imageUrl) {
         super(name, email, dob, phoneNumber,password,imageUrl);
         this.aClass = aClass;
     }
@@ -40,9 +46,9 @@ public class Student extends User implements Serializable, UserDetails {
     }
 
 
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority(role.name()));
+    public Collection<GrantedAuthority> getAuthorities() {
+        Collection<GrantedAuthority> authorities = new ArrayList<>();
+        return authorities;
     }
 
     @Override

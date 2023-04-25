@@ -24,6 +24,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { LoginAdminComponent } from './pages/login-admin/login-admin.component';
 import { HomepageComponent } from './layouts/homepage/homepage.component';
 import { ListBookComponent } from './pages/listbook/listbook.component';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   imports: [
@@ -52,7 +53,8 @@ import { ListBookComponent } from './pages/listbook/listbook.component';
     HomepageComponent,
     BookFilterPipe,
     BookFilterPipe2,
-    ListBookComponent
+    ListBookComponent,
+    HomeComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

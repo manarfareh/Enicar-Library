@@ -27,4 +27,27 @@ export class BorrowedBooksComponent implements OnInit {
       }
     );
   }
+
+  
+  saveChanges(book: BorrowedBook) {
+    this.BorrowedBooksService.updateBook(book).subscribe(() => {
+      // Do something when the book is updated successfully
+    }, (error) => {
+      // Handle error
+    });
+  }
+  loadBooks() {
+    this.BorrowedBooksService.getbook().subscribe((borrowedbooks: BorrowedBook[]) => {
+      this.borrowedbooks = borrowedbooks;
+    });
+  }
+  deleteBook(id: number) {
+    this.BorrowedBooksService.deleteBook(id)
+      .subscribe(() => {
+        console.log(`Book with ID ${id} deleted successfully.`);
+        this.loadBooks();
+      }, error => {
+        console.error(`Error deleting book with ID ${id}: `, error);
+      });
+  }
 }

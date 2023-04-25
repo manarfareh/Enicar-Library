@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 import tn.enicar.library_backend.Models.Actors.Student;
 
+import java.sql.Date;
 import java.time.LocalDate;
 
 @Entity
@@ -25,9 +26,9 @@ public class BorrowedBook {
     private Book book;
 
     @Column(name = "borrow_date")
-    private LocalDate borrowDate;
+    private Date borrowDate;
 
     @Column(name = "return_date")
-    private LocalDate returnDate;
+    private Date returnDate;
 
 }

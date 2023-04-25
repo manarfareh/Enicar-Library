@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import tn.enicar.library_backend.Models.PhoneNumber;
 
 import java.io.Serializable;
+import java.sql.Date;
 import java.time.LocalDate;
 @Entity
 @Table(name = "T_Professor",  uniqueConstraints = {@UniqueConstraint(columnNames = {"email"})})
@@ -15,7 +16,7 @@ import java.time.LocalDate;
 public class Prof extends User implements Serializable {
 
 
-    public Prof(String name, String email, LocalDate dob, PhoneNumber phoneNumber, String password,String imageUrl) {
+    public Prof(String name, String email, Date dob, PhoneNumber phoneNumber, String password, String imageUrl) {
         super(name, email, dob, phoneNumber, password,imageUrl);
     }
 }
