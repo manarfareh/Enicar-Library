@@ -60,7 +60,7 @@ onAccept(request: BorrowingRequest) {
       <i>Your Borrowing Request is accepted.</i> `,
       UseDefaultCredentials: false,
   EnableSsl: true
-      }).then( message => {alert(message); } );
+      }).then(  );
       console.log(Email);
     request.book.isAvailable=0;
     this.borrowingRequestservice.acceptRequest(request)

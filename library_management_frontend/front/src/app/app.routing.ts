@@ -11,21 +11,24 @@ import { LoginComponent } from './pages/login/login.component';
 import { ListBookComponent } from './pages/listbook/listbook.component';
 import { IsLoggedInGuard } from './layouts/auth-layout/is-logged-in.guard';
 import { HomeComponent } from './pages/home/home.component';
+import { IconsComponent } from './pages/icons/icons.component';
+import { UserProfileComponent } from './pages/user-profile/user-profile.component';
 const routes: Routes =[
-  {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full',
-  },
+
   { path: "login", component: LoginComponent },
   { path: "listbook", component: ListBookComponent },
+  { path: "list", component: IconsComponent },
   {
     path: 'login-admin',
     component: LoginAdminComponent,
   },
   {
-    path: 'home1',
+    path: '',
     component: HomeComponent,
+  },
+  {
+    path: 'profile',
+    component: UserProfileComponent,
   },
   {
     path: 'admin',
@@ -47,10 +50,7 @@ const routes: Routes =[
       }
     ]
   },
-  {
-    path: 'homepage',
-    component: HomepageComponent,
-  },
+
   {
     path: '',
     component:AuthLayoutComponent ,
@@ -64,7 +64,7 @@ const routes: Routes =[
   
   {
     path: '**',
-    redirectTo: 'home'
+    redirectTo: ''
   }
 ];
 @NgModule({

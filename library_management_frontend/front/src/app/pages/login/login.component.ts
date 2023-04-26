@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit, OnDestroy {
               console.log(result);
               this.authService.isLogged();
               localStorage.setItem('currentUser', result.access_token);
-              this.router.navigate(['/home']);
+              this.router.navigate(['/profile']);
             }else{
               console.log(result);
               this.error = 'Invalid email or password';

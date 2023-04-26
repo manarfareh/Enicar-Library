@@ -8,11 +8,8 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class ApiService {
-<<<<<<< HEAD
   private apiServerUrl = environment.apiUrl;
-=======
   private baseUrl ="http://localhost:8081/";
->>>>>>> 1fb931a06dbed5ed16a540519128a0d283b57bed
 
 
 
@@ -38,7 +35,7 @@ export class ApiService {
   
   
   sendStudentId(){
-    this.http.post('http://localhost:8082/students/mycollections', this.getUserData().subscribe((r) =>{r.id})).subscribe((response: any) => {
+    this.http.post('http://localhost:8081/students/mycollections', this.getUserData().subscribe((r) =>{r.id})).subscribe((response: any) => {
     console.log(response);
   });
   }

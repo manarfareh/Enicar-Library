@@ -1,6 +1,5 @@
 package tn.enicar.library_backend;
 
-import org.apache.log4j.chainsaw.Main;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;

@@ -1,10 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-<<<<<<< HEAD
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-=======
->>>>>>> 25dec37b51a7978258e7050c3ab448e0a6f99d85
 import {BorrowedBook } from './borrowed-books';
 import {  forkJoin } from 'rxjs';
 import { retry } from 'rxjs/operators';
@@ -35,7 +32,6 @@ export class BorrowedBooksService {
       map(responses => responses.reduce((acc, curr) => [...acc, ...curr], []))
     );
   }
-<<<<<<< HEAD
   private handleError(error: any) {
     console.error(error);
     return throwError('An error occurred. Please try again later.');
@@ -52,9 +48,8 @@ export class BorrowedBooksService {
         retry(3), // Retry up to 3 times if the request fails
         catchError(this.handleError) // Handle any errors that occur
       );
-=======
 
-
+      }
   getUserData() :Observable<BorrowedBook[]> {
     const token = localStorage.getItem('currentUser');
     const httpOptions = {
@@ -65,7 +60,5 @@ export class BorrowedBooksService {
     };
 
     return this.http.get<BorrowedBook[]>(`${this.apiServerUrl}/students/myprofile`,httpOptions);
-
->>>>>>> 25dec37b51a7978258e7050c3ab448e0a6f99d85
   }
 }
