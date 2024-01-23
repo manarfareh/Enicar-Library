@@ -113,4 +113,5 @@ public class AuthenticationService {
                 new ObjectMapper().writeValue(response.getOutputStream(), authResponse);
             }
         }
-    }}
+    }
+}

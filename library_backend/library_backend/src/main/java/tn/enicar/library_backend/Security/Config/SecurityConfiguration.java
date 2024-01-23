@@ -31,7 +31,7 @@ public class SecurityConfiguration {
                 .disable()
                 .cors().disable()
                 .authorizeHttpRequests()
-                .requestMatchers("/api/v1/auth/**","/BorrowingRequest/**","/students/**","/Book/**","/BorrowedBook/**","**")
+                .requestMatchers("**")
 
                 .permitAll()
                 .anyRequest()
