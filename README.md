@@ -52,54 +52,83 @@ and seamless integration with existing library databases.
 **DEMO:
 
  Home page:
+
+ 
 ![alt text](https://github.com/manarfareh/Enicar-Library/blob/main/Demo/Home%20page%204.png?raw=true)
+
 
 ![alt text](https://github.com/manarfareh/Enicar-Library/blob/main/Demo/Home%20page%203.png?raw=true)
 
+
 ![alt text](https://github.com/manarfareh/Enicar-Library/blob/main/Demo/Home%20page%202.png?raw=true)
 
+
 ![alt text](https://github.com/manarfareh/Enicar-Library/blob/main/Demo/Home%20page1.png?raw=true)
+
 
 ![alt text](https://github.com/manarfareh/Enicar-Library/blob/main/Demo/Contact%20us.png?raw=true)
 
 search book:
+
+
 ![alt text](https://github.com/manarfareh/Enicar-Library/blob/main/Demo/Search%20book.png?raw=true)
 
+
 ![alt text](https://github.com/manarfareh/Enicar-Library/blob/main/Demo/need%20to%20login.png?raw=true)
+
 
 ![alt text](https://github.com/manarfareh/Enicar-Library/blob/main/Demo/Book%20not%20available.png?raw=true)
 
 Login:
+
+
 ![alt text](https://github.com/manarfareh/Enicar-Library/blob/main/Demo/Login.png?raw=true)
 
 Books :
+
+
 ![alt text](https://github.com/manarfareh/Enicar-Library/blob/main/Demo/Collections.png?raw=true)
+
 
 ![alt text](https://github.com/manarfareh/Enicar-Library/blob/main/Demo/Book%20details.png?raw=true)
 
+
 ![alt text](https://github.com/manarfareh/Enicar-Library/blob/main/Demo/add%20Book.png?raw=true)
 
+
 ![alt text](https://github.com/manarfareh/Enicar-Library/blob/main/Demo/Add%20Book%201.png?raw=true)
+
 
 ![alt text](https://github.com/manarfareh/Enicar-Library/blob/main/Demo/Add%20Book%202.png?raw=true)
 
 Borrow :
+
+
 ![alt text](https://github.com/manarfareh/Enicar-Library/blob/main/Demo/Borrow.png?raw=true)
+
 
 ![alt text](https://github.com/manarfareh/Enicar-Library/blob/main/Demo/List%20of%20Borrowed%20Books.png?raw=true)
 
+
 ![alt text](https://github.com/manarfareh/Enicar-Library/blob/main/Demo/List%20of%20Borrowing%20Requests.png?raw=true)
+
 
 ![alt text](https://github.com/manarfareh/Enicar-Library/blob/main/Demo/Request%20details.png?raw=true)
 
 Users:
+
+
 ![alt text](https://github.com/manarfareh/Enicar-Library/blob/main/Demo/Users.png?raw=true)
+
 
 ![alt text](https://github.com/manarfareh/Enicar-Library/blob/main/Demo/Student%20details1.png?raw=true)
 
+
 ![alt text](https://github.com/manarfareh/Enicar-Library/blob/main/Demo/Student%20details2.png?raw=true)
 
+
 ![alt text](https://github.com/manarfareh/Enicar-Library/blob/main/Demo/Add%20student%201.png?raw=true)
+
 
 ![alt text](https://github.com/manarfareh/Enicar-Library/blob/main/Demo/Edit%20student1.png?raw=true)
 
